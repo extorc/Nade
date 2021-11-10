@@ -6,3 +6,6 @@
 
 //Loading Position Data and returning RawModel
 #include "Graphics/Loaders/ModelLoader.h"
+
+//Shaders
+#include "Graphics/Components/Shader.h"

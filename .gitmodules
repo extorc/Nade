@@ -1,0 +1,3 @@
+[submodule "Nade/vendor/glfw"]
+	path = Nade/vendor/glfw
+	url = https://github.com/glfw/glfw

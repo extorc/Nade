@@ -2,6 +2,11 @@
 
 out vec4 Pixel;
 
+uniform vec4 color;
+uniform int mat_form;
+
 void main(){
-	Pixel = vec4(1.0,1.0,0.0,1.0); 
+	if(mat_form == 0){
+		Pixel = color;
+	}
 }

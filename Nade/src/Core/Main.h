@@ -18,6 +18,8 @@ public:
 	}
 
 	void Update() override {
+		Nade::Shader::Set4F(shader->GetProgram(), "color", 1, 1, 0, 1);
+		Nade::Shader::Set1i(shader->GetProgram(), "mat_from", 0);
 		renderer.Draw(model.value());
 	}
 };

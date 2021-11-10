@@ -15,3 +15,6 @@
 
 //For Global Object Creation
 #include <optional>
+
+//Textures
+#include "Graphics/Components/Texture.h"

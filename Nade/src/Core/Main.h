@@ -3,23 +3,32 @@
 
 class Main : public Nade::Application {
 public:
-	float position[9] = {
-		1,1,0,0,1,0,0,0,0
+	float position[12] = {
+		1,1,0,
+		0,1,0,
+		0,0,0,
+		1,0,0
 	};
 
 	unsigned int index[6] = {
 		0,1,2,0,2,3
 	};
 
+	float coords[8] = {
+		1,1,0,1,0,0,1,0
+	};
 	std::optional<Nade::RawModel> model;
+	
+	Nade::Texture texture;
 
 	void Init() override {
-		model = Nade::ModelLoader::Load(position, index, 9, 6);
+		model = Nade::ModelLoader::Load(position, index, coords, 12, 6, 8);
+		texture.CreateTexture("C:/dev/Nade/Nade/res/textures/Blackhole.jpg");
+		texture.Bind();
 	}
 
 	void Update() override {
-		Nade::Shader::Set4F(shader->GetProgram(), "color", 1, 1, 0, 1);
-		Nade::Shader::Set1i(shader->GetProgram(), "mat_from", 0);
+		Nade::Shader::Set1i(shader->GetProgram(), "Texture", 0);
 		renderer.Draw(model.value());
 	}
 };

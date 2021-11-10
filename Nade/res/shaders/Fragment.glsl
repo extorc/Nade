@@ -2,11 +2,11 @@
 
 out vec4 Pixel;
 
+in vec2 Texture_Coords;
+
 uniform vec4 color;
-uniform int mat_form;
+uniform sampler2D Texture;
 
 void main(){
-	if(mat_form == 0){
-		Pixel = color;
-	}
+	Pixel = texture(Texture, Texture_Coords);
 }

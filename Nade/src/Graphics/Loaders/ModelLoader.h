@@ -5,6 +5,6 @@
 namespace Nade {
 	class ModelLoader {
 	public:
-		static RawModel Load(float position[], unsigned int index[], int vsize, int isize);
+		static RawModel Load(float position[], unsigned int index[], float coords[], int vsize, int isize, int csize);
 	};
 }

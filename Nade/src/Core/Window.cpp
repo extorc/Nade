@@ -15,9 +15,16 @@ namespace Nade {
 		}
 
 		glfwMakeContextCurrent(mWindow);
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+			std::cout << ND_OPENGL_NOT_INITIALIZED << std::endl;
+		}
 	}
 
 	void Window::Update() {
+
+		glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(1, 0, 0, 1);
 		glfwPollEvents();
 	}
 

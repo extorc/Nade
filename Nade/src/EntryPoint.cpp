@@ -1,28 +1,16 @@
 #include <iostream>
 #include "Nade.h"
+#include "Core/Main.h"
 
 int main() {
-	Nade::Window window(500, 500, "Nade Engine");
+	Main app;
 
-	float position[] = {
-		1,1,0,0,1,0,0,0,0
-	};
+	app.Init();
 
-	unsigned int index[] = {
-		0,1,2,0,2,3
-	};
-
-	Nade::RawModel model = Nade::ModelLoader::Load(position, index, 9, 6);
-
-	std::string vSource = Nade::Shader::parseFile("C:/dev/Nade/Nade/res/shaders/Vertex.glsl");
-	std::string fSource = Nade::Shader::parseFile("C:/dev/Nade/Nade/res/shaders/Fragment.glsl");
-
-	Nade::Shader shader(vSource.c_str(), fSource.c_str());
-
-	while (!window.ShouldClose()) {
-		window.Update();
-		glDrawElements(GL_TRIANGLES, model.VertexCount, GL_UNSIGNED_INT, nullptr);
-		window.Render();
+	while (!app.window->ShouldClose()) {
+		app.window->Update();
+		app.Update();
+		app.window->Render();
 	}
 
 	return 0;

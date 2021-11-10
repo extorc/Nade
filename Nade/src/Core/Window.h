@@ -6,6 +6,7 @@
 #define ND_GLFW_NOT_INITIALIZED "Failed to initialize GLFW"
 #define ND_WINDOW_NOT_CREATED_ERROR "Failed to create a Window"
 #define ND_OPENGL_NOT_INITIALIZED "Failed to initialize Glad"
+
 namespace Nade {
 	class Window {
 	public:

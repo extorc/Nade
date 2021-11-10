@@ -12,6 +12,9 @@ Nade/src/Entrypoint.cpp
 Nade/src/Core/Window.h
 Nade/src/Core/Window.cpp
 Nade/vendor/glad/src/glad.c
+Nade/src/Graphics/Components/RawModel.h
+Nade/src/Graphics/Loaders/ModelLoader.cpp
+Nade/src/Graphics/Loaders/ModelLoader.h
 )
 
 target_include_directories(Nade PUBLIC ${INC})

@@ -30,10 +30,10 @@
 
 //Predefined Vertices
 float Quadposition[12] = {
-		0.5, 0.5,0,
-	   -0.5, 0.5,0,
-	   -0.5,-0.5,0,
-		0.5,-0.5,0
+		 0.5, 0.5,0,
+		-0.5, 0.5,0,
+		-0.5,-0.5,0,
+		 0.5,-0.5,0
 };
 
 unsigned int Quadindex[6] = {

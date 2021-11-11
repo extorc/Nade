@@ -16,8 +16,7 @@ namespace Nade {
 		Nade::Window* window;
 		Nade::Shader* shader;
 		Nade::Renderer renderer;
-
-		glm::mat4 projection = glm::ortho(-1.0, 1.0, -9.0/16.0, 9.0/16.0, -10.0, 10.0);
+		Nade::Camera camera;
 
 		virtual void Init() = 0;
 		virtual void Update() = 0;

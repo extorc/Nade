@@ -19,12 +19,14 @@ namespace Nade {
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 			std::cout << ND_OPENGL_NOT_INITIALIZED << std::endl;
 		}
+
+		glfwSwapInterval(2);
 	}
 
 	void Window::Update() {
 
 		glClear(GL_COLOR_BUFFER_BIT);
-		glClearColor(1, 0, 0, 1);
+		//glClearColor(1, 0, 0, 1);
 		glfwPollEvents();
 	}
 

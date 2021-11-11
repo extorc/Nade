@@ -7,10 +7,13 @@ int main() {
 
 	app.Init();
 
+	
+
 	while (!app.window->ShouldClose()) {
 		app.window->Update();
 		app.Update();
-		Nade::Shader::SetMat4(app.shader->GetProgram(), "p", app.projection);
+		Nade::Shader::SetMat4(app.shader->GetProgram(), "p", app.camera.projection);
+		Nade::Shader::SetMat4(app.shader->GetProgram(), "v", app.camera.view);
 		app.window->Render();
 	}
 

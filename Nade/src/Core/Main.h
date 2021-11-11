@@ -11,7 +11,9 @@ public:
 	}
 
 	void Update() override {
-		Nade::Shader::Set1i(shader->GetProgram(), "Texture", 0);
-		renderer.Draw(object);
+		//object.Translate(0, 0, -0.01);
+		object.Rotate(-0.5f,-1,0);
+		camera.view = glm::translate(camera.view, glm::vec3(0, 0, -0.05));
+		renderer.Draw(object, shader);
 	}
 };

@@ -26,13 +26,14 @@
 
 //Game Components
 #include "Components/GameObject.h"
+#include "Components/Camera.h"
 
 //Predefined Vertices
 float Quadposition[12] = {
-		0.5,0.5,0,
-		-0.5,0.5,0,
-		-0.5,-0.5,0,
-		0.5,0 - .5,0
+		0.5, 0.5,0,
+	   -0.5, 0.5,0,
+	   -0.5,-0.5,0,
+		0.5,-0.5,0
 };
 
 unsigned int Quadindex[6] = {

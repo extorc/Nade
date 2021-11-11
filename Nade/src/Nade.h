@@ -1,3 +1,4 @@
+#pragma once
 // GLFW vendor Window Class
 #include "Core/Window.h"
 
@@ -25,7 +26,6 @@
 
 //Game Components
 #include "Components/GameObject.h"
-#include "Graphics/Components/Texture.h"
 
 //Predefined Vertices
 float Quadposition[12] = {

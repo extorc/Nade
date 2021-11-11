@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "glm.hpp"
 
 namespace Nade {
 	class Shader {
@@ -17,6 +18,9 @@ namespace Nade {
 		}
 		static void Set1i(unsigned int program, char* variable, int v0) {
 			glUniform1i(glGetUniformLocation(program, variable), v0);
+		}
+		static void SetMat4(unsigned int program, char* variable, glm::mat4 v0) {
+			glUniformMatrix4fv(glGetUniformLocation(program, variable), 1, GL_FALSE, &v0[0][0]);
 		}
 		unsigned int GetProgram() const { return program; }
 	private:

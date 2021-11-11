@@ -10,6 +10,7 @@ int main() {
 	while (!app.window->ShouldClose()) {
 		app.window->Update();
 		app.Update();
+		Nade::Shader::SetMat4(app.shader->GetProgram(), "p", app.projection);
 		app.window->Render();
 	}
 

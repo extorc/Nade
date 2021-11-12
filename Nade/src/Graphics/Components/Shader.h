@@ -22,6 +22,9 @@ namespace Nade {
 		static void SetMat4(unsigned int program, char* variable, glm::mat4 v0) {
 			glUniformMatrix4fv(glGetUniformLocation(program, variable), 1, GL_FALSE, &v0[0][0]);
 		}
+		static void Set1f(unsigned int program, char* variable, float v0) {
+			glUniform1f(glGetUniformLocation(program, variable), v0);
+		}
 		unsigned int GetProgram() const { return program; }
 	private:
 		unsigned int program;

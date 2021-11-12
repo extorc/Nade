@@ -11,6 +11,7 @@ public:
 	}
 
 	void Update() override {
+		Nade::Shader::Set1f(shader->GetProgram(), "ambient", 0.1);
 		object.Rotate(-0.5f,-1,0);
 		renderer.Draw(object, shader);
 	}

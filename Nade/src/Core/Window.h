@@ -15,6 +15,7 @@ namespace Nade {
 		void Update();
 		void Render();
 		bool ShouldClose();
+		GLFWwindow* GetWindow() const { return mWindow; }
 	private:
 		GLFWwindow* mWindow;
 	};

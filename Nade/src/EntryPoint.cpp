@@ -26,6 +26,12 @@ int main() {
 		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_D)) {
 			app.camera.Translate(0.1, 0, 0);
 		}
+		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_UP)) {
+			app.camera.Rotate(1, 0, 0);
+		}
+		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_DOWN)) {
+			app.camera.Rotate(-1, 0, 0);
+		}
 
 		Nade::Shader::SetMat4(app.shader->GetProgram(), "p", app.camera.projection);
 		Nade::Shader::SetMat4(app.shader->GetProgram(), "v", app.camera.view);

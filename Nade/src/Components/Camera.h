@@ -10,5 +10,10 @@ namespace Nade {
 		void Translate(double x, double y, double z) {
 			view = glm::translate(view, glm::vec3(-(float)x,-(float)y,-(float)z));
 		}
+		void Rotate(double x, double y, double z) {
+			view = glm::rotate(view, glm::radians((float)x), glm::vec3(1, 0, 0));
+			view = glm::rotate(view, glm::radians((float)y), glm::vec3(0, 1, 0));
+			view = glm::rotate(view, glm::radians((float)z), glm::vec3(0, 0, 1));
+		}
 	};
 }

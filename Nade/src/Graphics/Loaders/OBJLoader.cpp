@@ -11,7 +11,10 @@ namespace Nade {
 
 		std::vector<float> vertices;
 		std::vector<float> textureCoords;
+		std::vector<float> normals;
 		std::vector<unsigned int> indices;
+
+		std::cout << vertNum;
 
 		for (int i = 0; i < mMesh->mNumVertices; i++) {
 			vertices.push_back(mMesh->mVertices[i].x);
@@ -19,6 +22,9 @@ namespace Nade {
 			vertices.push_back(mMesh->mVertices[i].z);
 			textureCoords.push_back(mMesh->mTextureCoords[0][i].x);
 			textureCoords.push_back(mMesh->mTextureCoords[0][i].y);
+			normals.push_back(mMesh->mNormals[i].x);
+			normals.push_back(mMesh->mNormals[i].y);
+			normals.push_back(mMesh->mNormals[i].z);
 		}
 
 		for (unsigned int i = 0; i < mMesh->mNumFaces; i++) {
@@ -30,8 +36,9 @@ namespace Nade {
 
 		float* position = &vertices[0];
 		float* coords = &textureCoords[0];
+		float* normal = &normals[0];
 		unsigned int* index = &indices[0];
 
-		return ModelLoader::Load(position, index, coords, vertices.size(), indices.size(), textureCoords.size());
+		return ModelLoader::Load(position, index, coords, normal, vertices.size(), indices.size(), textureCoords.size(), normals.size());
 	}
 }

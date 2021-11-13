@@ -10,10 +10,8 @@
 #include "Graphics/Loaders/TextureLoader.h"
 #include "Graphics/Loaders/OBJLoader.h"
 
-//Shaders
+//Graphics Componenets
 #include "Graphics/Components/Shader.h"
-
-//Renderer
 #include "Graphics/Components/Renderer.h"
 
 //For Global Object Creation
@@ -28,6 +26,7 @@
 //Game Components
 #include "Components/GameObject.h"
 #include "Components/Camera.h"
+#include "Components/Light.h"
 
 //Asset Importer Library
 #include "assimp/scene.h"

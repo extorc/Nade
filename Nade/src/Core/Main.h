@@ -7,9 +7,9 @@ public:
 	Nade::Light light;
 
 	void Init() override {
-		light.SetPosition(2,2,2);
+		light.SetPosition(20,20,20);
 		light.SetColor(1, 1, 0);
-		object.SetModel(Nade::OBJLoader::Load("res/models/test.obj"));
+		object.SetModel(Nade::OBJLoader::Load("res/models/dragon.obj"));
 		object.SetTexture(Nade::TextureLoader::Load("res/textures/white.png"));
 	}
 

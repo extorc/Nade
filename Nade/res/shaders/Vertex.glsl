@@ -18,9 +18,7 @@ void main(){
 	gl_Position = p * v * world_position;
 
 	Texture_Coords = coords;
-	
-	vec3 final_normal = (vec4(normals,0.0) * m).xyz;
-	normal = final_normal;
+	normal = mat3(m) * normals;
 
 	toLightVector = light_position - world_position.xyz;
 }

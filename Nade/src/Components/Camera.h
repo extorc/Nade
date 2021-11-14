@@ -1,5 +1,6 @@
 #pragma once
-#include "Nade.h"
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
 
 namespace Nade {
 	class Camera {

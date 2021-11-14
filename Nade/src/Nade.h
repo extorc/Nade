@@ -2,17 +2,16 @@
 // GLFW vendor Window Class
 #include "Core/Window.h"
 
-//Raw Model Data Credentials
-#include "Graphics/Components/RawModel.h"
-
 //Loaders
 #include "Graphics/Loaders/ModelLoader.h"
 #include "Graphics/Loaders/TextureLoader.h"
 #include "Graphics/Loaders/OBJLoader.h"
 
 //Graphics Componenets
+#include "Graphics/Components/RawModel.h"
 #include "Graphics/Components/Shader.h"
 #include "Graphics/Components/Renderer.h"
+#include "Graphics/Components/Texture.h"
 
 //For Global Object Creation
 #include <optional>

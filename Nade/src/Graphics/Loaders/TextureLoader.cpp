@@ -1,11 +1,11 @@
 #include "TextureLoader.h"
-#include "glad/glad.h"
+#include "Nade.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 namespace Nade {
-	unsigned int TextureLoader::Load(const std::string& filePath) {
+	Texture TextureLoader::Load(const std::string& filePath) {
 		unsigned char* localBuffer = nullptr;
 		int width = 0, height = 0, BBP = 0;
 
@@ -30,7 +30,9 @@ namespace Nade {
 			stbi_image_free(localBuffer);
 		}
 
-		return texture;
+		Texture t = { texture ,0,0 };
+
+		return t;
 	}
 	void TextureLoader::Unbind() {
 		glActiveTexture(GL_TEXTURE0);

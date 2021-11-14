@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "../Components/Texture.h"
 namespace Nade {
 	class TextureLoader{
 	private:
@@ -11,6 +11,6 @@ namespace Nade {
 	public:
 		static void Bind(unsigned int texture);
 		static void Unbind();
-		static unsigned int Load(const std::string& filePath);
+		static Texture Load(const std::string& filePath);
 	};
 }

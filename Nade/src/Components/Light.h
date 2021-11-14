@@ -1,6 +1,6 @@
 #pragma once
 #include "glm.hpp"
-#include "Nade.h"
+#include "Graphics/Components/Shader.h"
 
 namespace Nade {
 	class Light {

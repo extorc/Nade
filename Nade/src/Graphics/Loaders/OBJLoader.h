@@ -1,5 +1,5 @@
 #pragma once
-#include "Nade.h"
+#include "Graphics/Components/RawModel.h"
 
 namespace Nade {
 	class OBJLoader {

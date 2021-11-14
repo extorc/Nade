@@ -26,6 +26,12 @@ namespace Nade {
 		void SetTexture(Texture texture) {
 			mData.texture = texture;
 		}
+		void SetReflective(float reflective) {
+			mData.texture.reflective = reflective;
+		}
+		void SetSpecular(float specular) {
+			mData.texture.specular = specular;
+		}
 		void Translate(double x, double y, double z) {
 			transform = glm::translate(transform, glm::vec3((float)x, (float)y, (float)z));
 		}

@@ -7,6 +7,7 @@ layout (location = 2) in vec3 normals;
 out vec2 Texture_Coords;
 out vec3 normal;
 out vec3 toLightVector;
+out vec3 toCameraVector;
 
 uniform mat4 p;
 uniform mat4 m;
@@ -21,4 +22,5 @@ void main(){
 	normal = mat3(m) * normals;
 
 	toLightVector = light_position - world_position.xyz;
+	toCameraVector = (inverse(v) * vec4(0,0,0,1)).xyz - world_position.xyz;
 }

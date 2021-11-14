@@ -11,8 +11,10 @@ namespace Nade {
 		void Draw(GameObject object, Shader* shader) {
 			RawModel model = object.GetData().model;
 			TextureLoader::Bind(object.GetData().texture.texture);
-			Nade::Shader::SetMat4(shader->GetProgram(), "m", object.transform);
-			Nade::Shader::Set1i(shader->GetProgram(), "Texture", 0);
+			Shader::SetMat4(shader->GetProgram(), "m", object.transform);
+			Shader::Set1i(shader->GetProgram(), "Texture", 0);
+			Shader::Set1f(shader->GetProgram(), "reflective", object.GetData().texture.reflective);
+			Shader::Set1f(shader->GetProgram(), "specular", object.GetData().texture.specular);
 			glDrawElements(GL_TRIANGLES, model.VertexCount, GL_UNSIGNED_INT, nullptr);
 		}
 	};

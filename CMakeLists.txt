@@ -1,25 +1,42 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
+project(Nade)
+
+set(CMAKE_CXX_STANDARD_REQUIRED 17)
 
 add_subdirectory(Nade/vendor/glfw)
 add_subdirectory(Nade/vendor/assimp)
 
-project(Nade)
+# GLAD
+add_library(GLAD Nade/vendor/glad/src/glad.c)
+target_include_directories(GLAD PUBLIC Nade/vendor/glad/include)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
-
-set(INC 
-glfw
-Nade/vendor/glad/include
-Nade/vendor/stb_image
-Nade/vendor/glm/glm
-Nade/src
-assimp
+# Engine Library
+set(ENGINE_LIBS 
+    glfw
+    assimp
+    GLAD
+)
+file(GLOB NADE_SRC 
+    Nade/src/*.cpp 
+    Nade/src/*/*.cpp
+    Nade/src/*/*/*.cpp
+)
+add_library(Nade SHARED ${NADE_SRC})
+target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})
+target_include_directories(Nade PUBLIC
+# Fix this later
+    Sandbox/
+    Nade/src
+    Nade/src/Graphics
+    Nade/src/Graphics/Components
+    Nade/src/Graphics/Loaders
+    Nade/src/Core
+    Nade/Components
+    Nade/vendor/glm
+    Nade/vendor/stb_image
 )
 
-set(LIBS glfw assimp)
-
-file(GLOB_RECURSE SRC Nade/src/*.cpp Nade/src/*.h Nade/src/*/*.cpp Nade/src/*/*.h Nade/vendor/glad/src/glad.c)
-add_executable(Nade ${SRC})
-
-target_include_directories(Nade PUBLIC ${INC})
-target_link_libraries(Nade PUBLIC ${LIBS})
+# Engine Sandbox
+add_executable(Sandbox Sandbox/Main.cpp Sandbox/Main.h)
+target_include_directories(Sandbox PUBLIC Sandbox/)
+target_link_libraries(Sandbox Nade)

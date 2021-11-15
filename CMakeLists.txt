@@ -21,7 +21,7 @@ file(GLOB NADE_SRC
     Nade/src/*/*.cpp
     Nade/src/*/*/*.cpp
 )
-add_library(Nade SHARED ${NADE_SRC})
+add_library(Nade STATIC ${NADE_SRC})
 target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})
 target_include_directories(Nade PUBLIC
 # Fix this later

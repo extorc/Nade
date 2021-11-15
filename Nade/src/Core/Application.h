@@ -7,8 +7,8 @@ namespace Nade {
 		Application() {
 			window = new Nade::Window(640, 360, "Nade Engine");
 
-			std::string vSource = Nade::Shader::parseFile("../../../res/shaders/Vertex.glsl");
-			std::string fSource = Nade::Shader::parseFile("../../../res/shaders/Fragment.glsl");
+			std::string vSource = Nade::Shader::parseFile("../../res/shaders/Vertex.glsl");
+			std::string fSource = Nade::Shader::parseFile("../../res/shaders/Fragment.glsl");
 
 			shader = new Nade::Shader(vSource.c_str(), fSource.c_str());
 		}
@@ -18,7 +18,7 @@ namespace Nade {
 		Nade::Renderer renderer;
 		Nade::Camera camera;
 
-		virtual void Init();
-		virtual void Update();
+		virtual void Init() = 0;
+		virtual void Update() = 0;
 	};
 }

@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Nade.h"
-#include "Main.h"
+#include "Core/Main.h"
 
 int main() {
-	Sandbox app;
+	Main app;
 
 	app.Init();
 

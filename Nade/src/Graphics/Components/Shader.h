@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "glm.hpp"
+#include <glm/glm.hpp>
 
 namespace Nade {
 	class Shader {

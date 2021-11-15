@@ -19,8 +19,8 @@
 #define ND_GLOBAL_CREATE(x) std::optional<x>
 
 //GLM Mathematics Header Library
-#include "glm.hpp"
-#include "gtc/matrix_transform.hpp"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 //Game Components
 #include "Components/GameObject.h"

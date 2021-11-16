@@ -1,5 +1,5 @@
 #pragma once
-#include "../Components/RawModel.h"
+#include "RawModel.h"
 #include "glad/glad.h"
 
 namespace Nade {

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
-#include "../Components/Texture.h"
+#include "Texture.h"
+
 namespace Nade {
 	class TextureLoader{
 	private:

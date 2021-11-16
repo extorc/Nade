@@ -1,9 +1,9 @@
 #pragma once
 #include "glad/glad.h"
-#include "Components/GameObject.h"
-#include "Graphics/Components/Shader.h"
-#include "Graphics/Components/RawModel.h"
-#include "Graphics/Loaders/TextureLoader.h"
+#include "GameObject.h"
+#include "Shader.h"
+#include "RawModel.h"
+#include "TextureLoader.h"
 
 namespace Nade {
 	class Renderer {

@@ -5,7 +5,7 @@
 #include "stb_image.h"
 
 namespace Nade {
-	Texture TextureLoader::Load(const std::string& filePath) {
+	unsigned int TextureLoader::Load(const std::string& filePath) {
 		unsigned char* localBuffer = nullptr;
 		int width = 0, height = 0, BBP = 0;
 
@@ -30,9 +30,7 @@ namespace Nade {
 			stbi_image_free(localBuffer);
 		}
 
-		Texture t = { texture  };
-
-		return t;
+		return texture;
 	}
 	void TextureLoader::Unbind() {
 		glActiveTexture(GL_TEXTURE0);

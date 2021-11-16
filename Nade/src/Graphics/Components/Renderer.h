@@ -10,7 +10,7 @@ namespace Nade {
 	public:
 		void Draw(GameObject object, Shader* shader) {
 			RawModel model = object.GetData().model;
-			TextureLoader::Bind(object.GetData().material.texture.texture);
+			TextureLoader::Bind(object.GetData().material.texture);
 			Shader::SetMat4(shader->GetProgram(), "m", object.transform);
 			Shader::Set1i(shader->GetProgram(), "Texture", 0);
 			Shader::Set1f(shader->GetProgram(), "reflective", object.GetData().material.reflective);

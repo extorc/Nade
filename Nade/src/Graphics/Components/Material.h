@@ -1,10 +1,9 @@
 #pragma once
-#include "Texture.h"
 
 namespace Nade {
 	class Material {
 	public:
-		void SetTexture(Texture pTexture) {
+		void SetTexture(unsigned int pTexture) {
 			texture = pTexture;
 		}
 		void SetSpecular(float pSpecular) {
@@ -13,7 +12,7 @@ namespace Nade {
 		void SetReflective(float pReflective) {
 			reflective = pReflective;
 		}
-		Texture texture;
+		unsigned int texture;
 		float reflective, specular;
 	};
 }

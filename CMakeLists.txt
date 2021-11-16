@@ -20,6 +20,9 @@ file(GLOB NADE_SRC
     Nade/src/*.cpp 
     Nade/src/*/*.cpp
     Nade/src/*/*/*.cpp
+    Nade/src/*.h 
+    Nade/src/*/*.h
+    Nade/src/*/*/*.h
 )
 add_library(Nade STATIC ${NADE_SRC})
 target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})

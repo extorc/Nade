@@ -3,7 +3,5 @@
 namespace Nade {
 	struct Texture {
 		unsigned int texture;
-		float reflective;
-		float specular;
 	};
 }

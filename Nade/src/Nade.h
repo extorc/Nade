@@ -12,6 +12,7 @@
 #include "Graphics/Components/Shader.h"
 #include "Graphics/Components/Renderer.h"
 #include "Graphics/Components/Texture.h"
+#include "Graphics/Components/Material.h"
 
 //For Global Object Creation
 #include <optional>

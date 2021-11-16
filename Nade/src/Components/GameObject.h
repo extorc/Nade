@@ -1,13 +1,13 @@
 #pragma once
-#include "Graphics/Components/RawModel.h"
-#include "Graphics/Components/Texture.h"
+#include "RawModel.h"
+#include "Material.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 namespace Nade {
 	struct ObjectData {
 		RawModel model;
-		Texture texture;
+		Material material;
 	};
 
 	class GameObject {
@@ -23,14 +23,8 @@ namespace Nade {
 		void SetModel(RawModel model) {
 			mData.model = model;
 		}
-		void SetTexture(Texture texture) {
-			mData.texture = texture;
-		}
-		void SetReflective(float reflective) {
-			mData.texture.reflective = reflective;
-		}
-		void SetSpecular(float specular) {
-			mData.texture.specular = specular;
+		void SetMaterial(Material material) {
+			mData.material = material;
 		}
 		void Translate(double x, double y, double z) {
 			transform = glm::translate(transform, glm::vec3((float)x, (float)y, (float)z));

@@ -30,7 +30,7 @@ namespace Nade {
 			stbi_image_free(localBuffer);
 		}
 
-		Texture t = { texture ,0,0 };
+		Texture t = { texture  };
 
 		return t;
 	}

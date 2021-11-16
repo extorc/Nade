@@ -4,6 +4,7 @@
 class Sandbox : public Nade::Application {
 public:
 	Nade::GameObject object;
+	Nade::Material material;
 	Nade::Light light;
 
 	void Init() override;

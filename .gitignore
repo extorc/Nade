@@ -1,3 +1,2 @@
-Nade/build/
-!Nade/build/.gitkeep
 build/
+!build/.gitkeep

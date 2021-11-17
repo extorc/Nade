@@ -34,6 +34,7 @@ target_include_directories(Nade PUBLIC
     Nade/src/Graphics/Components
     Nade/src/Graphics/Loaders
     Nade/src/Core
+    Nade/src/Core/Events
     Nade/src/Components
     Nade/vendor/glm
     Nade/vendor/stb_image
@@ -41,5 +42,6 @@ target_include_directories(Nade PUBLIC
 
 # Engine Sandbox
 add_executable(Sandbox Sandbox/Main.cpp Sandbox/Main.h)
+set_property(TARGET Sandbox PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/build/debug")
 target_include_directories(Sandbox PUBLIC Sandbox/)
 target_link_libraries(Sandbox Nade)

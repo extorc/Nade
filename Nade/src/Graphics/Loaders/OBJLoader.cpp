@@ -13,16 +13,14 @@ namespace Nade {
 	RawModel OBJLoader::Load(const char* file) {
 		Assimp::Importer importer;
 
-		const aiScene* mModel = importer.ReadFile(file, aiProcess_Triangulate | aiProcess_JoinIdenticalVertices);
-		const aiMesh* mMesh = mModel->mMeshes[0];
+		const auto mModel = importer.ReadFile(file, aiProcess_Triangulate | aiProcess_JoinIdenticalVertices);
+		const auto mMesh = mModel->mMeshes[0];
 		int vertNum = mMesh->mNumVertices;
 
 		std::vector<float> vertices;
 		std::vector<float> textureCoords;
 		std::vector<float> normals;
 		std::vector<unsigned int> indices;
-
-		std::cout << vertNum;
 
 		for (int i = 0; i < vertNum; i++) {
 			vertices.push_back(mMesh->mVertices[i].x);

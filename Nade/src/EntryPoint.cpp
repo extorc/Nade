@@ -7,7 +7,7 @@ int main() {
 
 	app.Init();
 
-	while (!app.window->ShouldClose()) {
+	while (app.window->mRunningState) {
 		app.window->Update();
 
 		Nade::Shader::Set1f(app.shader->GetProgram(), "ambient", 0.1);

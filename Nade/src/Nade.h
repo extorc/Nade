@@ -1,6 +1,7 @@
 #pragma once
-// GLFW vendor Window Class
+// Core Systems
 #include "Core/Window.h"
+#include "Core/Events/Event.h"
 
 //Loaders
 #include "Graphics/Loaders/ModelLoader.h"

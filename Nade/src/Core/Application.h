@@ -1,17 +1,11 @@
 #pragma once
 #include "Nade.h"
+#include <functional>
 
 namespace Nade {
 	class Application {
 	public:
-		Application() {
-			window = new Nade::Window(640, 360, "Nade Engine");
-
-			std::string vSource = Nade::Shader::parseFile("../../res/shaders/Vertex.glsl");
-			std::string fSource = Nade::Shader::parseFile("../../res/shaders/Fragment.glsl");
-
-			shader = new Nade::Shader(vSource.c_str(), fSource.c_str());
-		}
+		Application();
 
 		Nade::Window* window;
 		Nade::Shader* shader;
@@ -20,5 +14,8 @@ namespace Nade {
 
 		virtual void Init() = 0;
 		virtual void Update() = 0;
+
+		void OnEvent(Event& e);
+		void OnWindowCloseEvent(Event& e);
 	};
 }

@@ -1,4 +1,8 @@
 #pragma once
+
+//Precompiled Header
+#include "pch.h"
+
 // Core Systems
 #include "Core/Window.h"
 #include "Core/Events/Event.h"
@@ -13,9 +17,6 @@
 #include "Graphics/Components/Shader.h"
 #include "Graphics/Components/Renderer.h"
 #include "Graphics/Components/Material.h"
-
-//For Global Object Creation
-#include <optional>
 
 #define ND_GLOBAL_CREATE(x) std::optional<x>
 

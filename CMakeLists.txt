@@ -3,6 +3,7 @@ project(Nade)
 
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
 
+
 add_subdirectory(Nade/vendor/glfw)
 add_subdirectory(Nade/vendor/assimp)
 
@@ -27,6 +28,7 @@ file(GLOB NADE_SRC
 add_library(Nade STATIC ${NADE_SRC})
 target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})
 target_include_directories(Nade PUBLIC
+
 # Fix this later
     Sandbox/
     Nade/src
@@ -39,6 +41,7 @@ target_include_directories(Nade PUBLIC
     Nade/vendor/glm
     Nade/vendor/stb_image
 )
+target_precompile_headers(Nade PUBLIC "Nade/src/Core/pch.h")
 
 # Engine Sandbox
 add_executable(Sandbox Sandbox/Main.cpp Sandbox/Main.h)

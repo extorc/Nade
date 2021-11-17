@@ -1,6 +1,5 @@
 #pragma once
 #include "Nade.h"
-#include <functional>
 
 namespace Nade {
 	class Application {

@@ -1,9 +1,6 @@
 #pragma once
+#include "pch.h"
 #include "glad/glad.h"
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include <glm/glm.hpp>
 
 namespace Nade {

@@ -18,10 +18,24 @@ namespace Nade {
 		if (e.GetEventType() == EventType::WindowClose) {
 			OnWindowCloseEvent(e);
 		}
+		if (e.GetEventType() == EventType::WindowResize) {
+			OnWindowResizeEvent(e);
+		}
+		if (e.GetEventType() == EventType::WindowMove) {
+			OnWindowMoveEvent(e);
+		}
 	}
 	void Application::OnWindowCloseEvent(Event& e)
 	{
 		window->mRunningState = false;
 		std::cout << e.GetEventName() << std::endl;
+	}
+	void Application::OnWindowResizeEvent(Event& e)
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Nade::Application::OnWindowMoveEvent(Event& e)
+	{
+		std::cout << e.ToString() << std::endl;
 	}
 }

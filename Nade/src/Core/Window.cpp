@@ -36,6 +36,18 @@ namespace Nade {
 			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
 			data.callback(e);
 		});
+		glfwSetWindowSizeCallback(mWindow, [](GLFWwindow* window, int width, int height) {
+			WindowResizeEvent e(width, height);
+			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.width = width;
+			data.height = height;
+			data.callback(e);
+		});
+		glfwSetWindowPosCallback(mWindow, [](GLFWwindow* window, int xpos, int ypos) {
+			WindowMoveEvent e(xpos, ypos);
+			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.callback(e);
+		});
 	}
 
 	void Window::Update() {

@@ -16,5 +16,7 @@ namespace Nade {
 
 		void OnEvent(Event& e);
 		void OnWindowCloseEvent(Event& e);
+		void OnWindowResizeEvent(Event& e);
+		void OnWindowMoveEvent(Event& e);
 	};
 }

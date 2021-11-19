@@ -24,6 +24,12 @@ namespace Nade {
 		if (e.GetEventType() == EventType::WindowMove) {
 			OnWindowMoveEvent(e);
 		}
+		if (e.GetEventType() == EventType::KeyPress) {
+			OnKeyPressedEvent(e);
+		}
+		if (e.GetEventType() == EventType::KeyRelease) {
+			OnKeyReleasedEvent(e);
+		}
 	}
 	void Application::OnWindowCloseEvent(Event& e)
 	{
@@ -35,6 +41,14 @@ namespace Nade {
 		std::cout << e.ToString() << std::endl;
 	}
 	void Nade::Application::OnWindowMoveEvent(Event& e)
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnKeyPressedEvent(Event& e)
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnKeyReleasedEvent(Event& e)
 	{
 		std::cout << e.ToString() << std::endl;
 	}

@@ -48,6 +48,28 @@ namespace Nade {
 			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
 			data.callback(e);
 		});
+		glfwSetKeyCallback(mWindow, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+			switch (action) {
+			case GLFW_PRESS: {
+				KeyPressEvent e(key, 0);
+				WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.callback(e);
+				break;
+			}
+			case GLFW_REPEAT: {
+				KeyPressEvent e(key, 1);
+				WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.callback(e);
+				break;
+			}
+			case(GLFW_RELEASE): {
+				KeyReleaseEvent e(key);
+				WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.callback(e);
+				break;
+			}
+			}
+		});
 	}
 
 	void Window::Update() {

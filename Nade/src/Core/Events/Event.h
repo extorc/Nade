@@ -4,7 +4,8 @@
 namespace Nade {
 
 	enum class EventType {
-		WindowClose, WindowResize, WindowMove
+		WindowClose, WindowResize, WindowMove,
+		KeyPress, KeyRelease
 	};
 
 	class Event {
@@ -53,5 +54,34 @@ namespace Nade {
 		int GetY() const { return ySize; }
 	private:
 		int xSize, ySize;
+	};
+	class KeyPressEvent : public Event {
+	public:
+		KeyPressEvent(int keyCode, int repeatCount):mKeyCode(keyCode), mRepeatCount(repeatCount) {}
+		EventType GetEventType() const { return GetStaticType(); };
+		static EventType GetStaticType() { return EventType::KeyPress; }
+		std::string GetEventName() const { return "Key Press Event"; }
+		std::string ToString() {
+			std::stringstream ss;
+			ss << GetEventName() << " " << mKeyCode << "(" << mRepeatCount << ")";
+			return ss.str();
+		}
+	private:
+		int mKeyCode;
+		int mRepeatCount;
+	};
+	class KeyReleaseEvent : public Event {
+	public:
+		KeyReleaseEvent(int keyCode) :mKeyCode(keyCode){}
+		EventType GetEventType() const { return GetStaticType(); };
+		static EventType GetStaticType() { return EventType::KeyRelease; }
+		std::string GetEventName() const { return "Key Release Event"; }
+		std::string ToString() {
+			std::stringstream ss;
+			ss << GetEventName() << " " << mKeyCode;
+			return ss.str();
+		}
+	private:
+		int mKeyCode;
 	};
 }

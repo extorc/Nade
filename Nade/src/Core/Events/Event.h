@@ -5,7 +5,8 @@ namespace Nade {
 
 	enum class EventType {
 		WindowClose, WindowResize, WindowMove,
-		KeyPress, KeyRelease
+		KeyPress, KeyRelease,
+		MouseButtonPress, MouseButtonRelease, MouseScroll
 	};
 
 	class Event {
@@ -83,5 +84,47 @@ namespace Nade {
 		}
 	private:
 		int mKeyCode;
+	};
+	class MouseButtonPressEvent : public Event {
+	public:
+		MouseButtonPressEvent(int button) :mButton(button) {}
+		EventType GetEventType() const { return GetStaticType(); };
+		static EventType GetStaticType() { return EventType::MouseButtonPress; }
+		std::string GetEventName() const { return "Mouse Button Press Event"; }
+		std::string ToString() {
+			std::stringstream ss;
+			ss << GetEventName() << " " << mButton;
+			return ss.str();
+		}
+	private:
+		int mButton;
+	};
+	class MouseButtonReleaseEvent : public Event {
+	public:
+		MouseButtonReleaseEvent(int button) :mButton(button) {}
+		EventType GetEventType() const { return GetStaticType(); };
+		static EventType GetStaticType() { return EventType::MouseButtonRelease; }
+		std::string GetEventName() const { return "Mouse Button Release Event"; }
+		std::string ToString() {
+			std::stringstream ss;
+			ss << GetEventName() << " " << mButton;
+			return ss.str();
+		}
+	private:
+		int mButton;
+	};
+	class MouseScrollEvent : public Event {
+	public:
+		MouseScrollEvent(int xPos, int yPos) :mXpos(xPos), mYpos(yPos) {}
+		EventType GetEventType() const { return GetStaticType(); };
+		static EventType GetStaticType() { return EventType::MouseScroll; }
+		std::string GetEventName() const { return "Mouse Scroll Event"; }
+		std::string ToString() {
+			std::stringstream ss;
+			ss << GetEventName() << " " << mXpos << "," << mYpos;
+			return ss.str();
+		}
+	private:
+		int mXpos, mYpos;
 	};
 }

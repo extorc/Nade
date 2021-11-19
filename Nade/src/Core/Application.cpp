@@ -30,6 +30,15 @@ namespace Nade {
 		if (e.GetEventType() == EventType::KeyRelease) {
 			OnKeyReleasedEvent(e);
 		}
+		if (e.GetEventType() == EventType::MouseButtonPress) {
+			OnMousePressedEvent(e);
+		}
+		if (e.GetEventType() == EventType::MouseButtonRelease) {
+			OnMouseReleasedEvent(e);
+		}
+		if (e.GetEventType() == EventType::MouseScroll) {
+			OnMouseScrollEvent(e);
+		}
 	}
 	void Application::OnWindowCloseEvent(Event& e)
 	{
@@ -49,6 +58,18 @@ namespace Nade {
 		std::cout << e.ToString() << std::endl;
 	}
 	void Application::OnKeyReleasedEvent(Event& e)
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnMousePressedEvent(Event& e) 
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnMouseReleasedEvent(Event& e) 
+	{
+		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnMouseScrollEvent(Event& e)
 	{
 		std::cout << e.ToString() << std::endl;
 	}

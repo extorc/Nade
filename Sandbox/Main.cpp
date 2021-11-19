@@ -9,6 +9,7 @@ void Sandbox::Init() {
 	material.SetSpecular(5.0f);
 	object.SetMaterial(material);
 	object.Translate(0, -5, 0);
+	camera.Translate(0.0, 0.0, 5.0);
 }
 
 void Sandbox::Update() {

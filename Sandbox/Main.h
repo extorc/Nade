@@ -6,7 +6,6 @@ public:
 	Nade::GameObject object;
 	Nade::Material material;
 	Nade::Light light;
-
 	void Init() override;
 	void Update() override;
 };

@@ -20,5 +20,8 @@ namespace Nade {
 		void OnWindowMoveEvent(Event& e);
 		void OnKeyPressedEvent(Event& e);
 		void OnKeyReleasedEvent(Event& e);
+		void OnMousePressedEvent(Event& e);
+		void OnMouseReleasedEvent(Event& e);
+		void OnMouseScrollEvent(Event& e);
 	};
 }

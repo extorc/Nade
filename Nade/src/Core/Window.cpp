@@ -70,6 +70,27 @@ namespace Nade {
 			}
 			}
 		});
+		glfwSetMouseButtonCallback(mWindow, [](GLFWwindow* window, int button, int action, int mods) {
+			switch (action) {
+			case GLFW_PRESS: {
+				MouseButtonPressEvent e(button);
+				WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.callback(e);
+				break;
+			}
+			case GLFW_RELEASE: {
+				MouseButtonReleaseEvent e(button);
+				WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.callback(e);
+				break;
+			}
+			}
+		});
+		glfwSetScrollCallback(mWindow, [](GLFWwindow* window, double xoffset, double yoffset) {
+			MouseScrollEvent e(xoffset, yoffset);
+			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.callback(e);
+		});
 	}
 
 	void Window::Update() {

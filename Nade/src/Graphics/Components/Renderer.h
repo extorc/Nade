@@ -12,9 +12,7 @@ namespace Nade {
 			RawModel model = object.GetData().model;
 			TextureLoader::Bind(object.GetData().material.texture);
 			Shader::SetMat4(shader->GetProgram(), "m", object.transform);
-			Shader::Set1i(shader->GetProgram(), "Texture", 0);
-			Shader::Set1f(shader->GetProgram(), "reflective", object.GetData().material.reflective);
-			Shader::Set1f(shader->GetProgram(), "specular", object.GetData().material.specular);
+			object.GetData().material.Bind(shader->GetProgram());
 			glDrawElements(GL_TRIANGLES, model.VertexCount, GL_UNSIGNED_INT, nullptr);
 		}
 	};

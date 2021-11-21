@@ -7,7 +7,8 @@ in vec3 normal;
 in vec3 toLightVector;
 in vec3 toCameraVector;
 
-uniform vec4 color;
+uniform vec3 color;
+uniform int matform;
 uniform sampler2D Texture;
 uniform float ambient;
 uniform vec3 light_color;
@@ -32,5 +33,10 @@ void main(){
 	float damped_specular = pow(specular_factor, 10);
 	vec3 final_specular = damped_specular * 1 * light_color;
 
-	Pixel = vec4(diffuse,1.0) * texture(Texture, Texture_Coords) + vec4(final_specular, 1.0);
+	if(matform == 1){
+		Pixel = vec4(diffuse,1.0) * texture(Texture, Texture_Coords) + vec4(final_specular, 1.0);
+	}
+	if(matform == 0){
+		Pixel = vec4(diffuse,1.0) * vec4(color, 1.0) + vec4(final_specular, 1.0);
+	}
 }

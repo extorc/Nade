@@ -6,8 +6,6 @@ void Sandbox::Init() {
 	object.SetModel(Nade::OBJLoader::Load("C:/dev/Nade/res/models/dragon.obj"));
 	material.SetColor(glm::vec3(1, 1, 1));
 	material.SetTexture(Nade::TextureLoader::Load("C:/dev/Nade/res/textures/dragon.png"));
-	material.SetReflective(1.0f);
-	material.SetSpecular(10.0f);
 	object.SetMaterial(material);
 	object.Translate(0, -5, 0);
 	camera.Translate(0.0, 0.0, 5.0);

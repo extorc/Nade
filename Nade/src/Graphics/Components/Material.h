@@ -27,7 +27,7 @@ namespace Nade {
 			Shader::Set1i(shader, "matform", matform);
 		}
 		unsigned int texture;
-		float reflective, specular;
+		float reflective = 1.0f, specular = 10.0f;
 		glm::vec3 color;
 		int matform;
 	};

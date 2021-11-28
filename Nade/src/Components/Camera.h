@@ -35,7 +35,7 @@ namespace Nade {
 				Rotate(1, 0, 0);
 			}
 			else if (Input::IsKeyPressed(window, GLFW_KEY_DOWN)) {
-				Rotate(-1, 0, 0);
+				Rotate(0, 1, 0);
 			}
 		}
 	};

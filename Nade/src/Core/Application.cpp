@@ -30,14 +30,11 @@ namespace Nade {
 		if (e.GetEventType() == EventType::KeyRelease) {
 			OnKeyReleasedEvent(e);
 		}
-		if (e.GetEventType() == EventType::MouseButtonPress) {
-			OnMousePressedEvent(e);
-		}
-		if (e.GetEventType() == EventType::MouseButtonRelease) {
-			OnMouseReleasedEvent(e);
-		}
 		if (e.GetEventType() == EventType::MouseScroll) {
 			OnMouseScrollEvent(e);
+		}
+		if (e.GetEventType() == EventType::MouseMove) {
+			OnMouseMoveEvent(e);
 		}
 	}
 	void Application::OnWindowCloseEvent(Event& e)
@@ -72,5 +69,17 @@ namespace Nade {
 	void Application::OnMouseScrollEvent(Event& e)
 	{
 		std::cout << e.ToString() << std::endl;
+	}
+	void Application::OnMouseMoveEvent(Event& e)
+	{
+		if (Input::IsMouseButtonPressed(window, GLFW_MOUSE_BUTTON_LEFT)) {
+			double x, y;
+			glfwGetCursorPos(window->GetWindow(), &x, &y);
+			double xOffset = x - old_x;
+			double yOffset = y - old_y;
+			camera.Rotate(yOffset, xOffset, 0);
+			std::cout << x - old_x << "," << y - old_y << std::endl;
+		}
+		glfwGetCursorPos(window->GetWindow(), &old_x, &old_y);
 	}
 }

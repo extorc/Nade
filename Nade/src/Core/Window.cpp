@@ -91,6 +91,11 @@ namespace Nade {
 			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
 			data.callback(e);
 		});
+		glfwSetCursorPosCallback(mWindow, [](GLFWwindow* window, double xpos, double ypos) {
+			MouseMoveEvent e(xpos, ypos);
+			WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.callback(e);
+		});
 	}
 
 	void Window::Update() {

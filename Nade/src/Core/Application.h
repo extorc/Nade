@@ -23,5 +23,8 @@ namespace Nade {
 		void OnMousePressedEvent(Event& e);
 		void OnMouseReleasedEvent(Event& e);
 		void OnMouseScrollEvent(Event& e);
+		void OnMouseMoveEvent(Event& e);
+
+		double old_x, old_y;
 	};
 }

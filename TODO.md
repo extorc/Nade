@@ -3,11 +3,10 @@
 2) If you are interested in discussing the `Vague Ideas`, you can join my <a href = "https://discord.gg/MN6ccBjJK9"> Discord Server</a>.
 
 # Awaiting Implementation
-3) Normals in Materials
-4) Removal of EntryPoint Camera Movement
-5) Viewport Debugging Movement
+3) Simple gravitation physics implementation
+2) Viewport Rotation Using Mouse
+1) Normals in Materials
 
 # Vague Ideas
-1) Simple gravitation physics implementation<br>
-2) Collision detection
-3) Component System 
+1) Collision detection
+2) Component System

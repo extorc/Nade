@@ -7,6 +7,7 @@ set(ASSIMP_BUILD_DOCS OFF)
 set(ASSIMP_NO_EXPORT ON)
 set(ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT OFF)
 set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF)
+set(-DASSIMP_BUILD_OBJ_IMPORTER ON)
 
 add_subdirectory(Nade/vendor/glfw)
 add_subdirectory(Nade/vendor/assimp)

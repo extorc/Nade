@@ -34,6 +34,9 @@ namespace Nade {
 			transform = glm::rotate(transform, glm::radians((float)y), glm::vec3(0, 1, 0));
 			transform = glm::rotate(transform, glm::radians((float)z), glm::vec3(0, 0, 1));
 		}
+		void Scale(double x, double y, double z) {
+			transform = glm::scale(transform, glm::vec3(x, y, z));
+		}
 		glm::mat4 transform = glm::mat4(1.0f);
 
 		bool is_physics_object = false;

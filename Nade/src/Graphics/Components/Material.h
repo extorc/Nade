@@ -28,7 +28,7 @@ namespace Nade {
 		}
 		unsigned int texture;
 		float reflective = 1.0f, specular = 10.0f;
-		glm::vec3 color;
-		int matform;
+		glm::vec3 color = glm::vec3(1,1,1);
+		int matform = 0;
 	};
 }

@@ -5,7 +5,7 @@ namespace Nade {
 		int success = glfwInit();
 		if (!success)
 		{
-			std::cout << ND_GLFW_NOT_INITIALIZED << std::endl;
+			std::cout << ND_WINDOW_NOT_INITIALIZED << std::endl;
 		}
 
 		mWindow = glfwCreateWindow(width, height, title, 0, 0);

@@ -35,6 +35,9 @@ namespace Nade {
 			transform = glm::rotate(transform, glm::radians((float)z), glm::vec3(0, 0, 1));
 		}
 		glm::mat4 transform = glm::mat4(1.0f);
+
+		bool is_physics_object = false;
+		float velocity = 0;
 	private:
 		ObjectData mData;
 	};

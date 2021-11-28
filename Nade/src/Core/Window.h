@@ -4,7 +4,7 @@
 #include "GLFW/glfw3.h"
 #include "Event.h"
 
-#define ND_GLFW_NOT_INITIALIZED "Failed to initialize GLFW"
+#define ND_WINDOW_NOT_INITIALIZED "Failed to initialize GLFW"
 #define ND_WINDOW_NOT_CREATED_ERROR "Failed to create a Window"
 #define ND_OPENGL_NOT_INITIALIZED "Failed to initialize Glad"
 

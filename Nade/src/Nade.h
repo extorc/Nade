@@ -8,6 +8,9 @@
 #include "Core/Events/Event.h"
 #include "Core/Input/Input.h"
 
+//Physics
+#include "Core/Physics/PhysicsObject.h"
+
 //Loaders
 #include "Graphics/Loaders/ModelLoader.h"
 #include "Graphics/Loaders/TextureLoader.h"

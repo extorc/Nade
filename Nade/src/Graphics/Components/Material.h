@@ -1,6 +1,7 @@
 #pragma once
 #include "glm/glm.hpp"
 #include <iostream>
+#include "Shader.h"
 
 namespace Nade {
 	class Material {

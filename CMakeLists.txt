@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.14)
 project(Nade)
 
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
+set(ASSIMP_BUILD_TESTS OFF)
+set(ASSIMP_BUILD_DOCS OFF)
+set(ASSIMP_NO_EXPORT ON)
+set(ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT OFF)
+set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF)
 
 add_subdirectory(Nade/vendor/glfw)
 add_subdirectory(Nade/vendor/assimp)

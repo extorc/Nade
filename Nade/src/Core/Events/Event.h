@@ -115,7 +115,7 @@ namespace Nade {
 	};
 	class MouseScrollEvent : public Event {
 	public:
-		MouseScrollEvent(int xPos, int yPos) :mXpos(xPos), mYpos(yPos) {}
+		MouseScrollEvent(double xPos, double yPos) :mXpos(xPos), mYpos(yPos) {}
 		EventType GetEventType() const { return GetStaticType(); };
 		static EventType GetStaticType() { return EventType::MouseScroll; }
 		std::string GetEventName() const { return "Mouse Scroll Event"; }
@@ -125,6 +125,6 @@ namespace Nade {
 			return ss.str();
 		}
 	private:
-		int mXpos, mYpos;
+		double mXpos, mYpos;
 	};
 }

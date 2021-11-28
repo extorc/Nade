@@ -23,9 +23,9 @@ namespace Nade {
 		bool mRunningState = true;
 	private:
 		struct WindowData {
-			int width;
-			int height;
-			const char* title;
+			int width = 500;
+			int height = 500;
+			const char* title = "Nade Engine";
 			EventCallback callback;
 		};
 		WindowData mData;

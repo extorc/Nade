@@ -14,22 +14,22 @@ int main() {
 
 		app.Update();
 
-		if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_S)) {
+		if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_S)) {
 			app.camera.Translate(0, 0, 0.1);
 		}
-		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_W)) {
+		else if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_W)) {
 			app.camera.Translate(0, 0, -0.1);
 		}
-		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_A)) {
+		else if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_A)) {
 			app.camera.Translate(-0.1, 0, 0);
 		}
-		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_D)) {
+		else if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_D)) {
 			app.camera.Translate(0.1, 0, 0);
 		}
-		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_UP)) {
+		else if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_UP)) {
 			app.camera.Rotate(1, 0, 0);
 		}
-		else if (glfwGetKey(app.window->GetWindow(), GLFW_KEY_DOWN)) {
+		else if (Nade::Input::IsKeyPressed(app.window, GLFW_KEY_DOWN)) {
 			app.camera.Rotate(-1, 0, 0);
 		}
 

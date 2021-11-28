@@ -35,6 +35,7 @@ target_include_directories(Nade PUBLIC
     Nade/src/Graphics/Loaders
     Nade/src/Core
     Nade/src/Core/Events
+    Nade/src/Core/Input
     Nade/src/Components
     Nade/vendor/glm
     Nade/vendor/stb_image

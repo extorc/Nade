@@ -6,6 +6,7 @@
 // Core Systems
 #include "Core/Window.h"
 #include "Core/Events/Event.h"
+#include "Core/Input/Input.h"
 
 //Loaders
 #include "Graphics/Loaders/ModelLoader.h"

@@ -1,6 +1,8 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "Input.h"
+#include "Window.h"
 
 namespace Nade {
 	class Camera {
@@ -15,6 +17,26 @@ namespace Nade {
 			view = glm::rotate(view, glm::radians((float)x), glm::vec3(1, 0, 0));
 			view = glm::rotate(view, glm::radians((float)y), glm::vec3(0, 1, 0));
 			view = glm::rotate(view, glm::radians((float)z), glm::vec3(0, 0, 1));
+		}
+		void UseDebugViewportMovement(Window* window) {
+			if (Input::IsKeyPressed(window, GLFW_KEY_S)) {
+				Translate(0, 0, 0.1);
+			}
+			else if (Input::IsKeyPressed(window, GLFW_KEY_W)) {
+				Translate(0, 0, -0.1);
+			}
+			else if (Input::IsKeyPressed(window, GLFW_KEY_A)) {
+				Translate(-0.1, 0, 0);
+			}
+			else if (Input::IsKeyPressed(window, GLFW_KEY_D)) {
+				Translate(0.1, 0, 0);
+			}
+			else if (Input::IsKeyPressed(window, GLFW_KEY_UP)) {
+				Rotate(1, 0, 0);
+			}
+			else if (Input::IsKeyPressed(window, GLFW_KEY_DOWN)) {
+				Rotate(-1, 0, 0);
+			}
 		}
 	};
 }

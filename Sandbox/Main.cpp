@@ -11,5 +11,6 @@ void Sandbox::Init() {
 
 void Sandbox::Update() {
 	light.Bind(shader->GetProgram());
+	camera.UseDebugViewportMovement(window);
 	renderer.Draw(object, shader);
 }

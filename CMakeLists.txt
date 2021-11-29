@@ -11,10 +11,9 @@ set(-DASSIMP_BUILD_OBJ_IMPORTER ON)
 
 add_subdirectory(Nade/vendor/glfw)
 add_subdirectory(Nade/vendor/assimp)
+add_subdirectory(Nade/vendor/glad)
 
-# GLAD
-add_library(GLAD Nade/vendor/glad/src/glad.c)
-target_include_directories(GLAD PUBLIC Nade/vendor/glad/include)
+set(SRC Nade/src/)
 
 # Engine Library
 set(ENGINE_LIBS 
@@ -23,27 +22,27 @@ set(ENGINE_LIBS
     GLAD
 )
 file(GLOB NADE_SRC 
-    Nade/src/*.cpp 
-    Nade/src/*/*.cpp
-    Nade/src/*/*/*.cpp
-    Nade/src/*.h 
-    Nade/src/*/*.h
-    Nade/src/*/*/*.h
+    ${SRC}*.cpp 
+    ${SRC}*/*.cpp
+    ${SRC}*/*/*.cpp
+    ${SRC}*.h 
+    ${SRC}*/*.h
+    ${SRC}*/*/*.h
 )
 add_library(Nade STATIC ${NADE_SRC})
 target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})
 target_include_directories(Nade PUBLIC
 # Fix this later
     Sandbox/
-    Nade/src
-    Nade/src/Graphics
-    Nade/src/Graphics/Components
-    Nade/src/Graphics/Loaders
-    Nade/src/Core
-    Nade/src/Core/Events
-    Nade/src/Core/Input
-    Nade/src/Core/Physics
-    Nade/src/Components
+    ${SRC}
+    ${SRC}Graphics
+    ${SRC}Graphics/Components
+    ${SRC}Graphics/Loaders
+    ${SRC}Core
+    ${SRC}Core/Events
+    ${SRC}Core/Input
+    ${SRC}Core/Physics
+    ${SRC}Components
     Nade/vendor/glm
     Nade/vendor/stb_image
 )

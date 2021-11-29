@@ -5,13 +5,14 @@
 <a href = "https://discord.gg/MN6ccBjJK9"> Discord Server</a>.
 
 # Expected Improvement
-1) Viewport Rotation Using Mouse
-2) Simple Physics Implementation
+1) Viewport Rotation Using Mouse (movement implemented but us buggy)
+2) Simple Physics Implementation (simple movement)
 
 # Awaiting Implementation
-1) Normals in Materials
-2) Collision detection
-3) Component System
+1) Local Camera Movement
+2) Normals in Materials
+3) Collision detection
+4) Component System
 
 # Vague Ideas
 `Coming Soon`

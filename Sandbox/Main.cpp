@@ -1,6 +1,7 @@
 #include "Main.h"
 
 void Sandbox::Init() {
+	std::cout << "Welcome to my game" << std::endl;
 	Nade::Material material;
 	light.SetPosition(20,20,20);
 	light.SetColor(1, 1, 1);

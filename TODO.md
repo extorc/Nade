@@ -11,7 +11,7 @@
 # Awaiting Implementation
 1) Normals in Materials
 2) Collision detection
-3) CMake Separation for Sandbox and Nade so that .lib could be distributed for potential furute first release
+3) CMake Separation for Sandbox and Nade so that .lib could be distributed for potential future first release
 
 # Vague Ideas
 2) Component System

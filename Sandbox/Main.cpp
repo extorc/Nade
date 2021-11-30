@@ -1,7 +1,6 @@
 #include "Main.h"
 
 void Sandbox::Init() {
-	std::cout << "Welcome to my game" << std::endl;
 	Nade::Material material;
 	light.SetPosition(20,20,20);
 	light.SetColor(1, 1, 1);
@@ -11,7 +10,8 @@ void Sandbox::Init() {
 	object2.SetMaterial(material);
 	object.Scale(10, 1, 10);
 	object2.Translate(0,10,0);
-	camera.Translate(0.0, 0.0, 15.0);
+	camera.Translate(0.0, 5.0, 20.0);
+	object2.Scale(1.5);
 }
 
 void Sandbox::Update() {

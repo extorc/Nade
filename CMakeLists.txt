@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.14)
 
 project(Sandbox)
 
+set(CMAKE_BUILD_TYPE Debug)
+
+
 set(ASSIMP_BUILD_TESTS OFF)
 set(ASSIMP_BUILD_DOCS OFF)
 set(ASSIMP_NO_EXPORT ON)

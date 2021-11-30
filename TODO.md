@@ -8,11 +8,13 @@
 1) Viewport Rotation Using Mouse (movement implemented but us buggy)
 2) Simple Physics Implementation (simple movement)
 
+#Please do this for me 
+1) Normals in Materials
+2) Collision detection
+ 
 # Awaiting Implementation
 1) Local Camera Movement and Rotation
-2) Normals in Materials
-3) Collision detection
-4) Component System
+2) Component System
 
 # Vague Ideas
 1) Vulkan integration

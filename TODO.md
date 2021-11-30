@@ -9,10 +9,10 @@
 2) Simple Physics Implementation (simple movement)
 
 # Awaiting Implementation
-1) Local Camera Movement
+1) Local Camera Movement and Rotation
 2) Normals in Materials
 3) Collision detection
 4) Component System
 
 # Vague Ideas
-`Coming Soon`
+1) Vulkan integration

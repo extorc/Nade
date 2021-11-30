@@ -1,5 +1,7 @@
 #include "Application.h"
 
+#define BIND_FUNC(x) std::bind(&Application::x, this, std::placeholders::_1)
+
 namespace Nade {
 
 Application::Application()
@@ -11,32 +13,19 @@ Application::Application()
 
     shader = new Nade::Shader(vSource.c_str(), fSource.c_str());
 
-    window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+    window->SetEventCallback(BIND_FUNC(OnEvent));
 }
 
 void Application::OnEvent(Event& e)
 {
-    if (e.GetEventType() == EventType::WindowClose) {
-        OnWindowCloseEvent(e);
-    }
-    if (e.GetEventType() == EventType::WindowResize) {
-        OnWindowResizeEvent(e);
-    }
-    if (e.GetEventType() == EventType::WindowMove) {
-        OnWindowMoveEvent(e);
-    }
-    if (e.GetEventType() == EventType::KeyPress) {
-        OnKeyPressedEvent(e);
-    }
-    if (e.GetEventType() == EventType::KeyRelease) {
-        OnKeyReleasedEvent(e);
-    }
-    if (e.GetEventType() == EventType::MouseScroll) {
-        OnMouseScrollEvent(e);
-    }
-    if (e.GetEventType() == EventType::MouseMove) {
-        OnMouseMoveEvent(e);
-    }
+    EventDispatcher dispatcher;
+    dispatcher.Dispatch(e, BIND_FUNC(OnWindowCloseEvent),EventType::WindowClose);
+    dispatcher.Dispatch(e, BIND_FUNC(OnWindowResizeEvent), EventType::WindowResize);
+    dispatcher.Dispatch(e, BIND_FUNC(OnWindowMoveEvent), EventType::WindowMove);
+    dispatcher.Dispatch(e, BIND_FUNC(OnKeyReleasedEvent), EventType::KeyRelease);
+    dispatcher.Dispatch(e, BIND_FUNC(OnMouseMoveEvent), EventType::MouseMove);
+    dispatcher.Dispatch(e, BIND_FUNC(OnMouseScrollEvent), EventType::MouseScroll);
+
 }
 void Application::OnWindowCloseEvent(Event& e)
 {

@@ -5,9 +5,9 @@ void Sandbox::Init()
     Nade::Material material;
     light.SetPosition(20, 20, 20);
     light.SetColor(1, 1, 1);
-    object.SetModel(Nade::OBJLoader::Load("../res/models/high_poly_suzanne.obj"));
+    object.SetModel(Nade::OBJLoader::Load("../../res/models/cube.obj"));
     object.SetMaterial(material);
-    object2.SetModel(Nade::OBJLoader::Load("../res/models/high_poly_suzanne.obj"));
+    object2.SetModel(Nade::OBJLoader::Load("../../res/models/cube.obj"));
     object2.SetMaterial(material);
     object.Scale(10, 1, 10);
     object2.Translate(0, 10, 0);

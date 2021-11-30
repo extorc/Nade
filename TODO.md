@@ -8,7 +8,7 @@
 1) Viewport Rotation Using Mouse (movement implemented but us buggy)
 2) Simple Physics Implementation (simple movement)
 
-#Please do this for me 
+# Please do this for me 
 1) Normals in Materials
 2) Collision detection
  

@@ -5,9 +5,8 @@ void Sandbox::Init()
     Nade::Material material;
     light.SetPosition(20, 20, 20);
     light.SetColor(1, 1, 1);
-    Nade::RawModel model = Nade::OBJLoader::Load("../../res/models/individual_face_cube.obj");
     material.SetTexture(Nade::TextureLoader::Load("../../res/textures/crat.jpg"));
-    object.SetModel(model);
+    object.SetModel(Nade::OBJLoader::Load("../../res/models/individual_face_cube.obj"));
     object.SetMaterial(material);
 }
 

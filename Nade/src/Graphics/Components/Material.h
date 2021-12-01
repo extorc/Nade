@@ -33,7 +33,8 @@ public:
         Shader::Set1i(shader, "matform", matform);
     }
     unsigned int texture;
-    float reflective = 1.0f, specular = 10.0f;
+    float reflective = 2.0;
+    float specular = 10.0;
     glm::vec3 color = glm::vec3(1, 1, 1);
     int matform = 0;
 };

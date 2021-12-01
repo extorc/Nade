@@ -30,8 +30,8 @@ void main(){
 	float specular_factor = dot(reflection, unitToCameraVector);
 	specular_factor = max(specular_factor, 0.0);
 
-	float damped_specular = pow(specular_factor, 10);
-	vec3 final_specular = damped_specular * 1 * light_color;
+	float damped_specular = pow(specular_factor, specular);
+	vec3 final_specular = damped_specular * reflective * light_color;
 
 	if(matform == 1){
 		Pixel = vec4(diffuse,1.0) * texture(Texture, Texture_Coords) + vec4(final_specular, 1.0);

@@ -4,6 +4,8 @@
 #define EVENT_TYPE(x)  EventType GetEventType() const override { return GetStaticType(); } \
 		static EventType GetStaticType() { return x; }
 
+#define EVENT_NAME(x) std::string GetEventName() const { return x; }
+
 namespace Nade {
 
 	enum class EventType {
@@ -24,7 +26,6 @@ namespace Nade {
 		
 		void Dispatch(Event& e, EventCallback func, EventType type){
 			if(e.GetEventType() == type){
-				std::cout<<e.ToString()<<std::endl;
 				func(e);
 			}
 		}
@@ -32,14 +33,14 @@ namespace Nade {
 	class WindowCloseEvent : public Event {
 	public:
 		EVENT_TYPE(EventType::WindowClose);
-		std::string GetEventName() const { return "Window Close Event"; }
+		EVENT_NAME("Window CLose Event");
 		std::string ToString() override { return GetEventName(); }
 	};
 	class WindowResizeEvent : public Event {
 	public:
 		WindowResizeEvent(int x, int y):xSize(x) ,ySize(y){}
 		EVENT_TYPE(EventType::WindowResize);
-		std::string GetEventName() const { return "Window Resize Event"; }
+		EVENT_NAME("Window Resize Event");
 		std::string ToString() override { 
 			std::stringstream ss;
 			ss << GetEventName() << " " << GetX() << "," << GetY();
@@ -55,7 +56,7 @@ namespace Nade {
 	public:
 		WindowMoveEvent(int x, int y) :xSize(x), ySize(y) {}
 		EVENT_TYPE(EventType::WindowMove);
-		std::string GetEventName() const { return "Window Move Event"; }
+		EVENT_NAME("Winow Move Event");
 		std::string ToString() override {
 			std::stringstream ss;
 			ss << GetEventName() << " " << GetX() << "," << GetY();
@@ -70,7 +71,7 @@ namespace Nade {
 	public:
 		KeyPressEvent(int keyCode, int repeatCount):mKeyCode(keyCode), mRepeatCount(repeatCount) {}
 		EVENT_TYPE(EventType::KeyPress);
-		std::string GetEventName() const { return "Key Press Event"; }
+		EVENT_NAME("Key Pressed Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mKeyCode << "(" << mRepeatCount << ")";
@@ -84,7 +85,7 @@ namespace Nade {
 	public:
 		KeyReleaseEvent(int keyCode) :mKeyCode(keyCode){}
 		EVENT_TYPE(EventType::KeyRelease);
-		std::string GetEventName() const { return "Key Release Event"; }
+		EVENT_NAME("Key Released Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mKeyCode;
@@ -97,7 +98,7 @@ namespace Nade {
 	public:
 		MouseButtonPressEvent(int button) :mButton(button) {}
 		EVENT_TYPE(EventType::MouseButtonPress);
-		std::string GetEventName() const { return "Mouse Button Press Event"; }
+		EVENT_NAME("Mouse Button Press Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mButton;
@@ -110,7 +111,7 @@ namespace Nade {
 	public:
 		MouseButtonReleaseEvent(int button) :mButton(button) {}
 		EVENT_TYPE(EventType::MouseButtonRelease);
-		std::string GetEventName() const { return "Mouse Button Release Event"; }
+		EVENT_NAME("Mouse Button Release Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mButton;
@@ -123,7 +124,7 @@ namespace Nade {
 	public:
 		MouseScrollEvent(double xPos, double yPos) :mXpos(xPos), mYpos(yPos) {}
 		EVENT_TYPE(EventType::MouseScroll);
-		std::string GetEventName() const { return "Mouse Scroll Event"; }
+		EVENT_NAME("Mouse Scroll Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mXpos << "," << mYpos;
@@ -136,7 +137,7 @@ namespace Nade {
 	public:
 		MouseMoveEvent(double xPos, double yPos) :mXpos(xPos), mYpos(yPos) {}
 		EVENT_TYPE(EventType::MouseMove);
-		std::string GetEventName() const { return "Mouse Move Event"; }
+		EVENT_NAME("Mouse Move Event");
 		std::string ToString() {
 			std::stringstream ss;
 			ss << GetEventName() << " " << mXpos << "," << mYpos;

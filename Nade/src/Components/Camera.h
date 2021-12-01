@@ -42,5 +42,9 @@ public:
             Rotate(0, 1, 0);
         }
     }
+    void Bind(unsigned int shader){
+        Nade::Shader::SetMat4(shader, "p", projection);
+		Nade::Shader::SetMat4(shader, "v", view);
+    }
 };
 }

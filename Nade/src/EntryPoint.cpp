@@ -14,8 +14,7 @@ int main() {
 
 		app.Update();
 
-		Nade::Shader::SetMat4(app.shader->GetProgram(), "p", app.camera.projection);
-		Nade::Shader::SetMat4(app.shader->GetProgram(), "v", app.camera.view);
+		app.camera.Bind(app.shader->GetProgram());
 		app.window->Render();
 	}
 

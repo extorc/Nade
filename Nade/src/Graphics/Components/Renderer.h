@@ -14,6 +14,7 @@ namespace Nade {
 			}
 			object.Translate(0, object.velocity, 0);
 			RawModel model = object.GetData().model;
+			glBindVertexArray(model.ID);
 			TextureLoader::Bind(object.GetData().material.texture);
 			Shader::SetMat4(shader->GetProgram(), "m", object.transform);
 			object.GetData().material.Bind(shader->GetProgram());

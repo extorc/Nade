@@ -9,15 +9,11 @@ int main() {
 
 	while (app.window->mRunningState) {
 		app.window->Update();
-
-		Nade::Shader::Set1f(app.shader->GetProgram(), "ambient", 0.1);
-
+		app.world.Bind(app.shader->GetProgram());
 		app.Update();
-
 		app.camera.Bind(app.shader->GetProgram());
 		app.window->Render();
 	}
 
 	return 0;
 }
-	

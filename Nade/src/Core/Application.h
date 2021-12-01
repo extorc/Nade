@@ -10,7 +10,8 @@ namespace Nade {
 		Nade::Shader* shader;
 		Nade::Renderer renderer;
 		Nade::Camera camera;
-
+		Nade::World world;
+		
 		virtual void Init() = 0;
 		virtual void Update() = 0;
 

@@ -8,6 +8,12 @@
 #include "Core/Events/Event.h"
 #include "Core/Input/Input.h"
 
+//Game Components
+#include "Components/GameObject.h"
+#include "Components/Camera.h"
+#include "Components/Light.h"
+#include "Components/World.h"
+
 //Physics
 #include "Core/Physics/PhysicsObject.h"
 
@@ -27,11 +33,6 @@
 //GLM Mathematics Header Library
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
-
-//Game Components
-#include "Components/GameObject.h"
-#include "Components/Camera.h"
-#include "Components/Light.h"
 
 //Asset Importer Library
 #include "assimp/scene.h"

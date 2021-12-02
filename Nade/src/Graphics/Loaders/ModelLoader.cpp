@@ -1,21 +1,21 @@
 #include "ModelLoader.h"
 
 namespace Nade {
-	RawModel ModelLoader::Load(float position[], unsigned int index[], float coords[], float normals[], int vsize, int isize, int csize, int nsize) {
+	RawModel ModelLoader::Load(ModelData data) {
 		unsigned int vao, ibo;
 
 		glGenVertexArrays(1, &vao);
 		glBindVertexArray(vao);
 
-		LoadAttribute(0, vsize, position, 3);
-		LoadAttribute(1, csize, coords, 2);
-		LoadAttribute(2, nsize, normals, 3);
+		LoadAttribute(0, data.Vsize, data.mPosition, 3);
+		LoadAttribute(1, data.Csize, data.mCoords, 2);
+		LoadAttribute(2, data.Nsize, data.mNormals, 3);
 		
 		glGenBuffers(1, &ibo);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, isize * sizeof(unsigned int), index, GL_STATIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.Isize * sizeof(unsigned int), data.mIndex, GL_STATIC_DRAW);
 
-		RawModel model = { vao, isize };
+		RawModel model = { vao, data.Isize };
 		return model;
 	}
 	void ModelLoader::LoadAttribute(int index, int size, void* data, int layout) {

@@ -5,6 +5,7 @@
 #include "assimp/postprocess.h"
 #include "assimp/scene.h"
 
+#include "ModelData.h"
 #include "ModelLoader.h"
 
 namespace Nade {
@@ -44,6 +45,6 @@ RawModel OBJLoader::Load(const char* file)
     float* normal = &normals[0];
     unsigned int* index = &indices[0];
 
-    return ModelLoader::Load(position, index, coords, normal, (int)vertices.size(), (int)indices.size(), (int)textureCoords.size(), (int)normals.size());
+    return ModelLoader::Load(ModelData::GetModelData(position, index, coords, normal, (int)vertices.size(), (int)indices.size(), (int)textureCoords.size(), (int)normals.size()));
 }
 }

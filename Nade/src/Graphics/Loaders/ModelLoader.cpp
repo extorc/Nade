@@ -15,7 +15,7 @@ namespace Nade {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.Isize * sizeof(unsigned int), data.mIndex, GL_STATIC_DRAW);
 
-		RawModel model = { vao, data.Isize };
+		RawModel model = { vao, data.Isize , data};
 		return model;
 	}
 	void ModelLoader::LoadAttribute(int index, int size, void* data, int layout) {

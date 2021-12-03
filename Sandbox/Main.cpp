@@ -10,6 +10,9 @@ void Sandbox::Init()
     object.SetMaterial(material);
     object2.SetModel(Nade::OBJLoader::Load("../../res/models/t2.obj"));
     object2.SetMaterial(material);
+    for(int i = 0; i < object.GetData().model.data.Vsize; i++){
+        std::cout<<object.GetData().model.data.mPosition[0]<<std::endl;
+    }
 }
 
 void Sandbox::Update()

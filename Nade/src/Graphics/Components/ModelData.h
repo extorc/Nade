@@ -1,11 +1,12 @@
 #pragma once
+#include <vector>
 
 namespace Nade{
     struct ModelData{
-        float *mPosition;
-        unsigned int *mIndex;
-        float *mCoords;
-        float *mNormals;
+        std::vector<float> mPosition;
+        std::vector<unsigned int> mIndex;
+        std::vector<float> mCoords;
+        std::vector<float>mNormals;
         int Vsize;
         int Isize;
         int Csize;

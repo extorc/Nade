@@ -40,16 +40,7 @@ RawModel OBJLoader::Load(const char* file)
         indices.push_back(mFace.mIndices[2]);
     }
 
-    float* position = &vertices[0];
-    
-    for(int i = 0; i < (int)vertices.size(); i++){
-        std::cout<<position[i]<<std::endl;
-    }
-    std::cout<<"Main"<<std::endl;
-    float* coords = &textureCoords[0];
-    float* normal = &normals[0];
-    unsigned int* index = &indices[0];
-    ModelData data = {position, index, coords, normal, (int)vertices.size(), (int)indices.size(), (int)textureCoords.size(), (int)normals.size()};
+    ModelData data = {vertices, indices, textureCoords, normals, (int)vertices.size(), (int)indices.size(), (int)textureCoords.size(), (int)normals.size()};
     return ModelLoader::Load(data);
 }
 }

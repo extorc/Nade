@@ -27,3 +27,7 @@ void Sandbox::Update()
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
 }
+
+Nade::Application* CreateApplication(){
+	return new Sandbox();
+}

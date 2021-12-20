@@ -17,16 +17,12 @@ file(GLOB NADE_SRC
     src/*.cpp 
     src/*/*.cpp
     src/*/*/*.cpp
-    src/*.h 
-    src/*/*.h
-    src/*/*/*.h
 )
 
 add_library(Nade STATIC ${NADE_SRC})
 target_link_libraries(Nade PUBLIC ${ENGINE_LIBS})
 target_include_directories(Nade PUBLIC
 # Fix this later
-    ../Sandbox/
     src/
     src/Graphics
     src/Graphics/Components

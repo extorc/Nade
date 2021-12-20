@@ -1,18 +1,20 @@
 #include "pch.h"
 #include "Nade.h"
-#include "Main.h"
+#include "Application.h"
+
+extern Nade::Application* CreateApplication();
 
 int main() {
-	Sandbox app;
+	Nade::Application *app = CreateApplication();
 
-	app.Init();
+	app->Init();
 
-	while (app.window->mRunningState) {
-		app.window->Update();
-		app.world.Bind(app.shader->GetProgram());
-		app.Update();
-		app.camera.Bind(app.shader->GetProgram());
-		app.window->Render();
+	while (app->window->mRunningState) {
+		app->window->Update();
+		app->world.Bind(app->shader->GetProgram());
+		app->Update();
+		app->camera.Bind(app->shader->GetProgram());
+		app->window->Render();
 	}
 
 	return 0;

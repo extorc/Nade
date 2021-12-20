@@ -68,7 +68,6 @@ void Application::OnMouseMoveEvent(Event& e)
         double xOffset = x - old_x;
         double yOffset = y - old_y;
         camera.Rotate(yOffset / 2, xOffset / 2, 0);
-        std::cout << x - old_x << "," << y - old_y << std::endl;
     }
     glfwGetCursorPos(window->GetWindow(), &old_x, &old_y);
 }

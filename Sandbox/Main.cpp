@@ -11,9 +11,7 @@ void Sandbox::Init()
     object.SetMaterial(material);
     object2.SetMaterial(material);
     camera.Translate(0,0,15);
-    for(int i = 0; i < object.GetData().model.data.Vsize; i++){
-        std::cout<<object.GetData().model.data.mPosition.at(i)<<std::endl;
-    }
+    Nade::CollisionDetector::Detect(object, object2);
 }
 
 void Sandbox::Update()

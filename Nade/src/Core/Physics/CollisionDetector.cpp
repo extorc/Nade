@@ -25,9 +25,9 @@ namespace Nade{
     std::vector<glm::vec3> triangle1;
     std::vector<glm::vec3> triangle2;
     DeriveTriangles(object1, object2, triangle1, triangle2);
-    glm::vec3 normal1 = glm::normalize(glm::cross(triangle1.at(1) - triangle1.at(0), triangle1.at(2) - triangle1.at(0)));
-    glm::vec3 normal2 = glm::normalize(glm::cross(triangle2.at(1) - triangle2.at(0), triangle2.at(2) - triangle2.at(0)));
-    std::cout<< normal1.x << " " << normal1.y << " " << normal1.z << std::endl;
-    std::cout<< normal2.x << " " << normal2.y << " " << normal2.z << std::endl;
+    glm::vec3 normal1 = ND_EXTNORM(triangle1);
+    glm::vec3 normal2 = ND_EXTNORM(triangle2);
+    ND_PRINT_VEC(normal1);
+    ND_PRINT_VEC(normal2);
   }
 }

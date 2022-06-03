@@ -5,35 +5,25 @@
 
 namespace Nade{
   void CollisionDetector::CollisionDetector::Detect(GameObject& object1, GameObject& object2){
-    std::vector<glm::vec3> triVec;
+    std::vector<glm::vec3> triangle1;
+    std::vector<glm::vec3> triangle2;
+    for(int i = 0; i < object1.GetData().model.data.Vsize; i=i+3){
+      std::vector<float> pos = object1.GetData().model.data.mPosition;
+      float v1 = pos.at(i);
+      float v2 = pos.at(i+1);
+      float v3 = pos.at(i+2);
+      triangle1.push_back(glm::vec3(v1, v2, v3));
+    }
     for(int i = 0; i < object2.GetData().model.data.Vsize; i=i+3){
-      std::vector<float> pos2 = object2.GetData().model.data.mPosition;
-      float v1 = pos2.at(i);
-      float v2 = pos2.at(i+1);
-      float v3 = pos2.at(i+2);
-      glm::vec3 v = glm::vec3(v1, v2, v3);
-      glm::vec3 f(0,0,0);
-      for(int p = 0; p < object1.GetData().model.data.Vsize; p=p+3){
-        std::vector<float> pos1 = object1.GetData().model.data.mPosition;
-        float v12 = pos1.at(p);
-        float v22 = pos1.at(p+1);
-        float v32 = pos1.at(p+2);
-        glm::vec3 vf = glm::vec3(v12, v22, v32);
-        f += (vf-v);
-      }
-      f = glm::normalize(f);
-      triVec.push_back(f);
-      f = glm::vec3(0,0,0);
+      std::vector<float> pos = object2.GetData().model.data.mPosition;
+      float v1 = pos.at(i);
+      float v2 = pos.at(i+1);
+      float v3 = pos.at(i+2);
+      triangle2.push_back(glm::vec3(v1, v2, v3));
     }
-    for(int i = 0; i < 3; i++){
-      if(i == 2){
-        std::cout<<glm::dot(triVec.at(i), triVec.at(0))<<std::endl;
-      }
-      else{
-        std::cout<<glm::dot(triVec.at(i), triVec.at(i+1))<<std::endl;
-      }
-      // std::cout<<triVec.at(i).x << " " << triVec.at(i).y << " " << triVec.at(i).z << std::endl;
-    }
-    //***
+    glm::vec3 normal1 = glm::normalize(glm::cross(triangle1.at(1) - triangle1.at(0), triangle1.at(2) - triangle1.at(0)));
+    glm::vec3 normal2 = glm::normalize(glm::cross(triangle2.at(1) - triangle2.at(0), triangle2.at(2) - triangle2.at(0)));
+    std::cout<< normal1.x << " " << normal1.y << " " << normal1.z << std::endl;
+    std::cout<< normal2.x << " " << normal2.y << " " << normal2.z << std::endl;
   }
 }

@@ -5,25 +5,23 @@ void Sandbox::Init()
     Nade::Material material;
     light.SetPosition(20, 20, 20);
     light.SetColor(1, 1, 1);
-    material.SetTexture(Nade::TextureLoader::Load("../../res/textures/crat.jpg"));
-    object.SetModel(Nade::OBJLoader::Load("../../res/models/individual_face_cube.obj"));
+    material.SetColor(glm::vec3(.6,.6,.6));
+    object.SetModel(Nade::OBJLoader::Load("../../res/models/t1.obj"));
+    object2.SetModel(Nade::OBJLoader::Load("../../res/models/t2.obj"));
     object.SetMaterial(material);
-    object2.SetModel(Nade::OBJLoader::Load("../../res/models/Cube.obj"));
-    object2.Scale(10,1,10);
-    object2.Translate(0,-6,0);
+    object2.SetMaterial(material);
+    object2.Translate(0,1,0);
     camera.Translate(0,0,15);
-    for(int i = 0; i < object.GetData().model.data.Vsize; i++){
-        std::cout<<object.GetData().model.data.mPosition.at(i)<<std::endl;
-    }
+    Nade::CollisionDetector::Detect(object, object2);
 }
 
 void Sandbox::Update()
 {
     light.Bind(shader->GetProgram());
     camera.UseDebugViewportMovement(window);
-    // if (Nade::Input::IsKeyPressed(window, GLFW_KEY_SPACE)) {
-    //     Nade::PhysicsObject::SetPhysicsObject(object);
-    // }
+    if (Nade::Input::IsKeyPressed(window, GLFW_KEY_SPACE)) {
+        Nade::PhysicsObject::SetPhysicsObject(object2);
+    }
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
 }

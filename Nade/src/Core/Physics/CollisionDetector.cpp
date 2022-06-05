@@ -27,9 +27,19 @@ namespace Nade{
     DeriveTriangles(object1, object2, triangle1, triangle2);
     glm::vec3 normal1 = ND_EXTNORM(triangle1);
     glm::vec3 normal2 = ND_EXTNORM(triangle2);
-    ND_PRINT_VEC(normal1);
-    ND_PRINT_VEC(normal2);
-    float k = -glm::dot(normal2, triangle2.at(0));
-    std::cout<<glm::dot(normal2, triangle1.at(0)) + k << " " << glm::dot(normal2, triangle1.at(1)) + k << " " << glm::dot(normal2, triangle1.at(2)) + k << std::endl; //Signed distance between plane and vertex of other triangle
+    float k1 = -glm::dot(normal1, triangle1.at(0));
+    float k2 = -glm::dot(normal2, triangle2.at(0));
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2)<<std::endl;
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2)<<std::endl;
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2)<<std::endl;
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1)<<std::endl;
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1)<<std::endl;
+    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1)<<std::endl;
+    if(ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2) && ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2) && ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1) == ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1) ==  ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1) ==  ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1)){
+      std::cout<<"Not Colliding"<<std::endl;
+    }
+    else{
+      std::cout<<"Colliding"<<std::endl;
+    }
   }
 }

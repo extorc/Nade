@@ -10,6 +10,7 @@ void Sandbox::Init()
     object2.SetModel(Nade::OBJLoader::Load("../../res/models/t2.obj"));
     object.SetMaterial(material);
     object2.SetMaterial(material);
+    object2.Translate(0,1,0);
     camera.Translate(0,0,15);
     Nade::CollisionDetector::Detect(object, object2);
 }
@@ -18,9 +19,9 @@ void Sandbox::Update()
 {
     light.Bind(shader->GetProgram());
     camera.UseDebugViewportMovement(window);
-    // if (Nade::Input::IsKeyPressed(window, GLFW_KEY_SPACE)) {
-    //     Nade::PhysicsObject::SetPhysicsObject(object);
-    // }
+    if (Nade::Input::IsKeyPressed(window, GLFW_KEY_SPACE)) {
+        Nade::PhysicsObject::SetPhysicsObject(object2);
+    }
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
 }

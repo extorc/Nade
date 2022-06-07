@@ -25,18 +25,29 @@ namespace Nade{
     std::vector<glm::vec3> triangle1;
     std::vector<glm::vec3> triangle2;
     DeriveTriangles(object1, object2, triangle1, triangle2);
+
+    for(int i = 0; i < 3; i++){
+      triangle1.at(i) += object1.GetPosition();
+    }
+    for(int i = 0; i < 3; i++){
+      triangle2.at(i) += object2.GetPosition();
+    }
+
     glm::vec3 normal1 = ND_EXTNORM(triangle1);
     glm::vec3 normal2 = ND_EXTNORM(triangle2);
     float k1 = -glm::dot(normal1, triangle1.at(0));
     float k2 = -glm::dot(normal2, triangle2.at(0));
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2)<<std::endl;
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2)<<std::endl;
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2)<<std::endl;
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1)<<std::endl;
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1)<<std::endl;
-    // std::cout<<ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1)<<std::endl;
-    if(ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2) && ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2) && ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2) == ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1) == ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1) ==  ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1) && ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1) ==  ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1)){
-      std::cout<<"Not Colliding"<<std::endl;
+
+    int dif1 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2);
+    int dif2 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2);
+    int dif3 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2);
+    int dif4 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1);
+    int dif5 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1);
+    int dif6 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1);
+
+    if(dif1 == dif2 && dif2 == dif3 && dif3 == dif1){
+    }
+    else if(dif4 == dif5 && dif5 == dif6 && dif6 == dif4){
     }
     else{
       std::cout<<"Colliding"<<std::endl;

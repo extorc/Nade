@@ -5,8 +5,6 @@
 
 # Expected Improvement
 1) Viewport Rotation Using Mouse (movement implemented but is buggy)
-2) Simple Physics Implementation (simple collision)<br/>
-*Apply transform to intersected triangles. Current calculations are only based on initial vertex positions.
 
 # Please do this for me 
 1) Normals in Materials

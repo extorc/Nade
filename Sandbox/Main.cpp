@@ -12,7 +12,6 @@ void Sandbox::Init()
     object2.SetMaterial(material);
     object2.Translate(0,1,0);
     camera.Translate(0,0,15);
-    Nade::TraingleIntersectionDetector::Detect(object, object2);
 }
 
 void Sandbox::Update()
@@ -24,6 +23,7 @@ void Sandbox::Update()
     }
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
+    Nade::TraingleIntersectionDetector::Detect(object, object2);
 }
 
 Nade::Application* CreateApplication(){

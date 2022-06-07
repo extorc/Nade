@@ -5,6 +5,7 @@
 
 # Expected Improvement
 1) Viewport Rotation Using Mouse (movement implemented but is buggy)
+2) Hitboxes (group triangles under TraiangleIntersectionDetector)
 
 # Please do this for me 
 1) Normals in Materials

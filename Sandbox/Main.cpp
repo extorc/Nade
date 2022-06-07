@@ -12,7 +12,7 @@ void Sandbox::Init()
     object2.SetMaterial(material);
     object2.Translate(0,1,0);
     camera.Translate(0,0,15);
-    Nade::CollisionDetector::Detect(object, object2);
+    Nade::TraingleIntersectionDetector::Detect(object, object2);
 }
 
 void Sandbox::Update()

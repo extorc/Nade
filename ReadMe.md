@@ -8,8 +8,8 @@
 
 # Please do this for me 
 1) Normals in Materials
- 
+2) Hitboxes (group triangles under TraiangleIntersectionDetector)
+
 # Awaiting Implementation
 1) Local Camera Movement and Rotation
 2) Component System
-3) Hitboxes (group triangles under TraiangleIntersectionDetector)

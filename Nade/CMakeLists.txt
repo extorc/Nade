@@ -4,13 +4,13 @@ project(Nade)
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
 
 add_subdirectory(vendor/glfw)
-add_subdirectory(vendor/assimp)
+add_subdirectory(vendor/fast_obj)
 add_subdirectory(vendor/glad)
 
 # Engine Library
 set(ENGINE_LIBS 
     glfw
-    assimp
+    fast_obj_lib
     GLAD
 )
 file(GLOB NADE_SRC 

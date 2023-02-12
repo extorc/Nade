@@ -10,3 +10,6 @@
 [submodule "Nade/vendor/assimp"]
 	path = Nade/vendor/assimp
 	url = https://github.com/assimp/assimp
+[submodule "Nade/vendor/fast_obj"]
+	path = Nade/vendor/fast_obj
+	url = https://github.com/thisistherk/fast_obj

@@ -23,7 +23,7 @@ void Sandbox::Update()
     }
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
-    Nade::TraingleIntersectionDetector::Detect(object, object2);
+    Nade::ObjectCollisionDetector::Detect(object, object2);
 }
 
 Nade::Application* CreateApplication(){

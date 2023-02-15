@@ -4,44 +4,23 @@
 #include <vector>
 
 namespace Nade{
-  void TraingleIntersectionDetector::DeriveTriangles(GameObject& object, std::vector<glm::vec3>& triangle){
-    for(int i = 0; i < object.GetData().model.data.Vsize; i=i+3){
-      std::vector<float> pos = object.GetData().model.data.mPosition;
-      float v1 = pos.at(i);
-      float v2 = pos.at(i+1);
-      float v3 = pos.at(i+2);
-      triangle.push_back(glm::vec3(v1, v2, v3));
-    }
-  }
-
-  void TraingleIntersectionDetector::TraingleIntersectionDetector::Detect(GameObject& object1, GameObject& object2){
-    std::vector<glm::vec3> triangle1;
-    std::vector<glm::vec3> triangle2;
-    DeriveTriangles(object1, triangle1);
-    DeriveTriangles(object2, triangle2);
-
-    for(int i = 0; i < 3; i++){
-      triangle1.at(i) += object1.GetPosition();
-    }
-    for(int i = 0; i < 3; i++){
-      triangle2.at(i) += object2.GetPosition();
-    }
-
-    glm::vec3 normal1 = ND_EXTNORM(triangle1);
+    void TraingleIntersectionDetector::TraingleIntersectionDetector::Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2){
+    
+    glm::vec3 normal1 = ND_EXTNORM(triangle1);                             //Extract Normal vectors of the triangle
     glm::vec3 normal2 = ND_EXTNORM(triangle2);
-    float k1 = -glm::dot(normal1, triangle1.at(0));
+    float k1 = -glm::dot(normal1, triangle1.at(0));                        //Calculate D value for plane based on the equation D = -N.V
     float k2 = -glm::dot(normal2, triangle2.at(0));
 
-    int dif1 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2);
-    int dif2 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2);
-    int dif3 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2);
-    int dif4 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1);
-    int dif5 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1);
-    int dif6 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1);
+    int distSign1 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(0)) + k2);     //Insert Vertices of the first plane in the equation of second to get the signed distance
+    int distSign2 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(1)) + k2);
+    int distSign3 = ND_CHECK_SIGN(glm::dot(normal2, triangle1.at(2)) + k2);
+    int distSign4 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(0)) + k1);
+    int distSign5 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(1)) + k1);
+    int distSign6 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1);
 
-    if(dif1 == dif2 && dif2 == dif3 && dif3 == dif1){
+    if(distSign1 == distSign2 && distSign2 == distSign3 && distSign3 == distSign1){         //Check if the sign of the distances of all the Vertices from the plane are same, else they are colliding.
     }
-    else if(dif4 == dif5 && dif5 == dif6 && dif6 == dif4){
+    else if(distSign4 == distSign5 && distSign5 == distSign6 && distSign6 == distSign4){
     }
     else{
       std::cout<<"Colliding"<<std::endl;

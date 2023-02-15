@@ -1,3 +1,8 @@
+
+// The following paper was used to perform the following computation.
+
+// https://web.stanford.edu/class/cs277/resources/papers/Moller1997b.pdf
+
 #include "TriangleIntersectionDetector.h"
 #include <iostream>
 #include <glm/glm.hpp>

@@ -3,7 +3,7 @@
 
 # Please do this for me 
 1) Normals in Materials
-2) Hitboxes (group triangles under TraiangleIntersectionDetector)
+3) Fix glitchy object collision. (exceptions arise when Cube is made to collide with triangle)
 
 # Awaiting Implementation
 1) Local Camera Movement and Rotation

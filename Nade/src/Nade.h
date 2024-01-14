@@ -13,7 +13,6 @@
 #include "Components/Camera.h"
 #include "Components/Light.h"
 #include "Components/World.h"
-#include "Components/ObjectCollisionDetector.h"
 
 //Physics
 #include "Core/Physics/PhysicsObject.h"

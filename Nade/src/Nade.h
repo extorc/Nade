@@ -17,6 +17,7 @@
 //Physics
 #include "Core/Physics/PhysicsObject.h"
 #include "Core/Physics/TriangleIntersectionDetector.h"
+#include "Core/Physics/ObjectCollisionDetector.h"
 
 //Loaders
 #include "Graphics/Loaders/ModelLoader.h"

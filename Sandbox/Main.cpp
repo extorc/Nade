@@ -3,14 +3,14 @@
 void Sandbox::Init()
 {
     Nade::Material material;
-    light.SetPosition(20, 20, 20);
+    light.SetPosition(10, 10, 10);
     light.SetColor(1, 1, 1);
     material.SetColor(glm::vec3(.6,.6,.6));
-    object.SetModel(Nade::OBJLoader::Load("../../res/models/t1.obj"));
-    object2.SetModel(Nade::OBJLoader::Load("../../res/models/t2.obj"));
+    object.SetModel(Nade::OBJLoader::Load("C:/Users/mitta/dev/Nade/res/models/t1.obj"));
+    object2.SetModel(Nade::OBJLoader::Load("C:/Users/mitta/dev/Nade/res/models/t2.obj"));
     object.SetMaterial(material);
     object2.SetMaterial(material);
-    object2.Translate(0,1,0);
+    object2.Translate(0,5,0);
     camera.Translate(0,0,15);
 }
 
@@ -23,7 +23,7 @@ void Sandbox::Update()
     }
     renderer.Draw(object, shader);
     renderer.Draw(object2, shader);
-    Nade::TraingleIntersectionDetector::Detect(object, object2);
+    Nade::ObjectCollisionDetector::Detect(object, object2);
 }
 
 Nade::Application* CreateApplication(){

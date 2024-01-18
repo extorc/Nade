@@ -14,19 +14,7 @@ namespace Nade{
     }
   }
 
-  void TraingleIntersectionDetector::TraingleIntersectionDetector::Detect(GameObject& object1, GameObject& object2){
-    std::vector<glm::vec3> triangle1;
-    std::vector<glm::vec3> triangle2;
-    DeriveTriangles(object1, triangle1);
-    DeriveTriangles(object2, triangle2);
-
-    for(int i = 0; i < 3; i++){
-      triangle1.at(i) += object1.GetPosition();
-    }
-    for(int i = 0; i < 3; i++){
-      triangle2.at(i) += object2.GetPosition();
-    }
-
+  void TraingleIntersectionDetector::Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2){
     glm::vec3 normal1 = ND_EXTNORM(triangle1);
     glm::vec3 normal2 = ND_EXTNORM(triangle2);
     float k1 = -glm::dot(normal1, triangle1.at(0));

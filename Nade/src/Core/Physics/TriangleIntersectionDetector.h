@@ -7,7 +7,7 @@
 namespace Nade{
   class TraingleIntersectionDetector{
   public:
-    static void Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2);
+    static int Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2);
     static void DeriveTriangles(GameObject& object,std::vector<glm::vec3>& triangle);
   };
 }

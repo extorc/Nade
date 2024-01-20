@@ -14,7 +14,7 @@ namespace Nade{
     }
   }
 
-  void TraingleIntersectionDetector::Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2){
+  int TraingleIntersectionDetector::Detect(std::vector<glm::vec3> triangle1, std::vector<glm::vec3> triangle2){
     glm::vec3 normal1 = ND_EXTNORM(triangle1);
     glm::vec3 normal2 = ND_EXTNORM(triangle2);
     float k1 = -glm::dot(normal1, triangle1.at(0));
@@ -28,11 +28,13 @@ namespace Nade{
     int dif6 = ND_CHECK_SIGN(glm::dot(normal1, triangle2.at(2)) + k1);
 
     if(dif1 == dif2 && dif2 == dif3 && dif3 == dif1){
+      return 0;
     }
     else if(dif4 == dif5 && dif5 == dif6 && dif6 == dif4){
+      return 0;
     }
     else{
-      std::cout<<"Colliding"<<std::endl;
+      return 1;
     }
   }
 }

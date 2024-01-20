@@ -6,8 +6,8 @@
 namespace Nade {
 	class PhysicsObject {
 	public:
-		static void SetPhysicsObject(GameObject& object) {
-			object.is_physics_object = true;
+		static void SetPhysicsObject(GameObject& object, bool state) {
+			object.is_physics_object = state;
 		}
 	};
 }
